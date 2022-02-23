@@ -1,5 +1,6 @@
 import * as CryptoJS from "crypto-js";
 
+// 잘 작동하기위함을 보여주기 위한 강의었나용?
 class Block {
     static calculateBlockHash = (index: number, previousHash: string, timestamp: number, data: string): string => CryptoJS.SHA256(index + previousHash + timestamp + data).toString();
 
@@ -24,13 +25,14 @@ const genesisBlock: Block = new Block(0, "20202020202", "", "Hello", 123456);
 
 let blockchain: Block[] = [genesisBlock];
 
+// 이것도 함수가 안쓰임 -> 마지막까지 이유는 모름
 const getBlockchain = (): Block[] => blockchain;
 
 const getLatestBlock = (): Block => blockchain[blockchain.length - 1];
 
 const getNewTimeStamp = (): number => Math.round(new Date().getTime() / 1000);
 
-// 함수가 아직 안쓰임
+// 비트코인을 생성함
 const createNewBlock = (data: string): Block => {
     const previousBlock: Block = getLatestBlock();
     const newIndex: number = previousBlock.index + 1; // 2
@@ -64,5 +66,11 @@ const addBlock = (candidateBlock: Block): void => {
         blockchain.push(candidateBlock);
     }
 };
+
+createNewBlock("second block");
+createNewBlock("third block");
+createNewBlock("fourth block");
+
+console.log(blockchain);
 
 export {};
