@@ -1,0 +1,10 @@
+// NOTE 이 파일에 TypeScript에게 어떻게 JavaScript로 변환하는지 알려주면서 몇몇 옵션을 준다.
+{
+    "compilerOptions": {
+        "module": "commonjs", // 이건 단지 nodejs를 평범하게 사용하고, 다양한 걸 import하거나 export할 수 있게 만드는 것 -> 이것 이 모듈
+        "target": "ES2015", // 어떤 버전의 JavaScript로 컴파일 되고 싶은지 적는 것 -> ES2015
+        "sourceMap": true // sourcemap 처리를 하고 싶은 지 알려준다.
+    },
+    "include": ["index.ts"], // 어떤 파일들이 컴파일 과정에 포함되는 지 TypeScript에게 알려준다. 컴파일 과정에서 포함할 파일의 배열을 적으면 된다.
+    "exclude": ["node_modules"] // 이번 경우에는 어떤 node modules도 설치하지 않을 건데 하지만 디폴트로 제외해놓는게 좋다.
+}
