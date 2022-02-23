@@ -1,2 +1,5 @@
-/index.js
-/index.js.map
+node_modules
+
+# dotenv environment variables file
+dist
+
